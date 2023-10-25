@@ -10,7 +10,7 @@ class MainWeather extends StatelessWidget {
   MainWeather({super.key});
 
   final TextStyle _style1 = const TextStyle(
-    fontWeight: FontWeight.w500,
+    fontWeight: FontWeight.w600,
     fontSize: 20,
   );
 
@@ -43,7 +43,7 @@ class MainWeather extends StatelessWidget {
               style: _style2,
             ),
             const SizedBox(
-              height: 5.0,
+              height: 10.0,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -58,14 +58,14 @@ class MainWeather extends StatelessWidget {
                 const Text(
                   '13˚C',
                   style: TextStyle(
-                    fontSize: 55,
+                    fontSize: 60,
                     fontWeight: FontWeight.w600,
                   ),
                 ),
               ],
             ),
             const SizedBox(
-              height: 5.0,
+              height: 10.0,
             ),
             Text(
               '15˚/11˚ Feels like 13˚',
