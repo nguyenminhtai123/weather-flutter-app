@@ -12,7 +12,7 @@ class Weather with ChangeNotifier {
   final String currently;
   final int humidity;
   final double windSpeed;
-  final String cityName;
+  String cityName;
 
   Weather({
     required this.temp,
@@ -35,7 +35,7 @@ class Weather with ChangeNotifier {
       tempMax: json['main']['temp_max'],
       tempMin: json['main']['temp_min'],
       lat: json['coord']['lat'],
-      long: json['coord']['long'],
+      long: json['coord']['lon'],
       feelsLike: json['main']['feels_like'],
       pressure: json['main']['pressure'],
       description: json['weather'][0]['description'],

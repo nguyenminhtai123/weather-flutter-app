@@ -22,7 +22,7 @@ class DailyWeather with ChangeNotifier {
       final precipitation = calcPrecip.toStringAsFixed(0);
       return DailyWeather(
         precip: precipitation,
-        uvi: (json['daily']?[0]['uvi'] as int?),
+        uvi: json['daily']?[0]['uvi'] as int?,
       );
     } else {
       throw const FormatException('Invalid or missing pop data');

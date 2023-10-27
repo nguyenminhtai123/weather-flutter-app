@@ -1,4 +1,4 @@
-// ignore_for_file: unused_field, non_constant_identifier_names
+// ignore_for_file: unused_field, non_constant_identifier_names, unnecessary_string_interpolations
 
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -32,7 +32,7 @@ class MainWeather extends StatelessWidget {
               children: [
                 const Icon(Icons.location_on_outlined),
                 Text(
-                  'Mountain View',
+                  '${WeatherProv.weather!.cityName}',
                   style: _style1,
                 ),
               ],
@@ -49,15 +49,15 @@ class MainWeather extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 MapString.mapStringToIcon(
-                  'Rain',
+                  '${WeatherProv.weather!.currently}',
                   55,
                 ),
                 const SizedBox(
                   width: 16,
                 ),
-                const Text(
-                  '13˚C',
-                  style: TextStyle(
+                Text(
+                  '${WeatherProv.weather!.temp.toStringAsFixed(0)}˚C',
+                  style: const TextStyle(
                     fontSize: 60,
                     fontWeight: FontWeight.w600,
                   ),
@@ -68,7 +68,7 @@ class MainWeather extends StatelessWidget {
               height: 10.0,
             ),
             Text(
-              '15˚/11˚ Feels like 13˚',
+              '${WeatherProv.weather!.tempMax.toStringAsFixed(0)}˚/${WeatherProv.weather!.tempMin.toStringAsFixed(0)}˚ Feels like ${WeatherProv.weather!.feelsLike.toStringAsFixed(0)}˚',
               style: _style1.copyWith(
                 fontSize: 19,
               ),
@@ -77,7 +77,9 @@ class MainWeather extends StatelessWidget {
               height: 5.0,
             ),
             Text(
-              'Light rain˚',
+              toBeginningOfSentenceCase(
+                      '${WeatherProv.weather!.description}') ??
+                  '',
               style: _style1.copyWith(
                 fontSize: 19,
               ),

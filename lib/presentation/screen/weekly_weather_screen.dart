@@ -11,6 +11,6 @@ class WeeklyWeatherScreen extends StatefulWidget {
 class _WeeklyWeatherScreenState extends State<WeeklyWeatherScreen> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold();
+    return Container();
   }
 }

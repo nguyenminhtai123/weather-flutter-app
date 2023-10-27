@@ -67,12 +67,12 @@ class WeatherDetail extends StatelessWidget {
               fontWeight: FontWeight.w600,
             ),
           ),
-          Container(
+          SizedBox(
             height: MediaQuery.of(context).size.height / 3,
             width: MediaQuery.of(context).size.width,
             child: GridView(
-                padding: EdgeInsets.symmetric(vertical: 20),
-                gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+                padding: const EdgeInsets.symmetric(vertical: 20),
+                gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
                   maxCrossAxisExtent: 250,
                   childAspectRatio: 2 / 1,
                   crossAxisSpacing: 10,

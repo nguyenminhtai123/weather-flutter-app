@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 class HourlyForecast extends StatelessWidget {
@@ -56,31 +55,36 @@ class HourlyForecast extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Padding(
-          padding: EdgeInsets.symmetric(horizontal: 15),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 15),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(
+              const Text(
                 'Next 3 hours',
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.w600,
                 ),
               ),
-              Text(
-                'See More',
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w600,
-                  color: Colors.blue,
+              TextButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/hourly_weather_wcreen');
+                },
+                child: const Text(
+                  'See More',
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w600,
+                    color: Colors.blue,
+                  ),
                 ),
               ),
             ],
           ),
         ),
         const SizedBox(
-          height: 20,
+          height: 15,
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
