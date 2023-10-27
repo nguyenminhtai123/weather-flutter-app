@@ -31,12 +31,12 @@ class Weather with ChangeNotifier {
 
   factory Weather.fromJson(Map<String, dynamic> json) {
     return Weather(
-      temp: (json['main']['temp']),
-      tempMax: json['main']['temp_max'],
-      tempMin: json['main']['temp_min'],
+      temp: (json['main']['temp'] - 273),
+      tempMax: (json['main']['temp_max'] - 273),
+      tempMin: (json['main']['temp_min'] - 273),
       lat: json['coord']['lat'],
       long: json['coord']['lon'],
-      feelsLike: json['main']['feels_like'],
+      feelsLike: (json['main']['feels_like'] - 273),
       pressure: json['main']['pressure'],
       description: json['weather'][0]['description'],
       currently: json['weather'][0]['main'],

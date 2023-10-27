@@ -3,13 +3,15 @@ import 'package:flutter/material.dart';
 class DailyWeather with ChangeNotifier {
   final dynamic dailyTemp;
   final String? condition;
+  final String? description;
   final DateTime? date;
   final String? precip;
-  final int? uvi;
+  final double? uvi;
 
   DailyWeather({
     this.dailyTemp,
     this.condition,
+    this.description,
     this.date,
     this.precip,
     this.uvi,
@@ -22,7 +24,7 @@ class DailyWeather with ChangeNotifier {
       final precipitation = calcPrecip.toStringAsFixed(0);
       return DailyWeather(
         precip: precipitation,
-        uvi: json['daily']?[0]['uvi'] as int?,
+        uvi: json['daily']?[0]['uvi'],
       );
     } else {
       throw const FormatException('Invalid or missing pop data');
@@ -33,6 +35,7 @@ class DailyWeather with ChangeNotifier {
     return DailyWeather(
       dailyTemp: json['temp']['day'],
       condition: json['weather']?[0]['main'],
+      description: json['weather']?[0]['description'],
       date: DateTime.fromMillisecondsSinceEpoch((json['dt'] as int) * 1000,
           isUtc: true),
     );
@@ -42,6 +45,7 @@ class DailyWeather with ChangeNotifier {
     return DailyWeather(
       dailyTemp: json['temp'],
       condition: json['weather']?[0]['main'],
+      description: json['weather']?[0]['description'],
       date: DateTime.fromMillisecondsSinceEpoch((json['dt'] as int) * 1000),
     );
   }

@@ -19,7 +19,7 @@ class WeatherProvider with ChangeNotifier {
   List<DailyWeather> hourlyWeather = [];
   List<DailyWeather> hourly24Weather = [];
   List<DailyWeather> fiveDayWeather = [];
-  List<DailyWeather> sevenDayWeather = [];
+  List<DailyWeather> weeklyForecast = [];
   bool isLoading = false;
   bool isLocationError = false;
   bool isRequestError = false;
@@ -151,7 +151,7 @@ class WeatherProvider with ChangeNotifier {
           .skip(1)
           .take(24)
           .toList();
-      sevenDayWeather = items
+      weeklyForecast = items
           .map((item) => DailyWeather.fromDailyJson(item))
           .toList()
           .skip(1)
@@ -189,6 +189,8 @@ class WeatherProvider with ChangeNotifier {
     isRequestError = false;
     isLocationError = false;
     await searchWeatherWithLocation(location);
+
+    print(LatLng(weather!.lat, weather!.long));
     if (weather == null) {
       isRequestError = true;
       notifyListeners();
